@@ -21,3 +21,10 @@ jobs:
     - name: Build
       run: cargo build --release --target wasm32-unknown-unknown
 
+    - name: Deploy to GitHub Pages
+      if: ${{ github.event_name != 'pull_request' }}
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: target/wasm32-unknown-unknown/release
+
