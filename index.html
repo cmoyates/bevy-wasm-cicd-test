@@ -1,16 +1,18 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+  <body style="margin: 0px; background-color: black; height: 100%">
+    <script type="module">
+      import init from "./bevy-wasm-cicd-test.js";
 
-<body style="margin: 0px; background-color: black;">
-  <script type="module">
-    import init from './bevy-wasm-cicd-test.js'
-
-    init().catch((error) => {
-      if (!error.message.startsWith("Using exceptions for control flow, don't mind me. This isn't actually an error!")) {
-        throw error;
-      }
-    });
-  </script>
-</body>
-
+      init().catch((error) => {
+        if (
+          !error.message.startsWith(
+            "Using exceptions for control flow, don't mind me. This isn't actually an error!"
+          )
+        ) {
+          throw error;
+        }
+      });
+    </script>
+  </body>
 </html>
